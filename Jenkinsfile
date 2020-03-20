@@ -14,7 +14,7 @@ pipeline {
                 git branch: 'master', url: 'https://github.com/sivaramap/siva-gce-tf.git'
             }
         }
-      	stage('Show version') {
+      	stage('Set Terraform path') {
        	     steps {
              script {
                     def tfHome = tool name: 'Terraform'

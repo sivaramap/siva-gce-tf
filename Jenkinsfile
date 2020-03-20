@@ -3,21 +3,20 @@ pipeline {
     tools {
         Terraform 'Terraform v0.12.20'
     }
-    environment {
+   // environment {
     //TF_WORKSPACE = 'dev' //Sets the Terraform Workspace
-    TF_IN_AUTOMATION = 'true'
-    }
+   // TF_IN_AUTOMATION = 'true'
+   // }
      
     stages {
         stage ('checkout'){
             steps {
-                git branch: 'master', url: 'https://github.com/sivaramap/gce-vm-tf.git'
+                git branch: 'master', url: 'https://github.com/sivaramap/siva-gce-tf.git'
             }
         }
-      
-		stage('Set Terraform path') {
-            steps {
-                script {
+      	stage('Show version') {
+       	     steps {
+             script {
                     def tfHome = tool name: 'Terraform'
                     env.PATH = "${tfHome}:${env.PATH}"
                 }
@@ -27,7 +26,7 @@ pipeline {
         
          stage('Provision infrastructure') {
             steps {
-                dir("terraform-gce") 
+                //dir("terraform-gce") 
                 {
                 sh 'terraform init'
                 sh 'terraform plan'

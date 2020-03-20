@@ -27,11 +27,11 @@ pipeline {
          stage('Provision infrastructure') {
             steps {
                 //dir("terraform-gce") 
-                {
+                //{
                 sh 'terraform init'
                 sh 'terraform plan'
                 sh 'terraform apply -auto-approve'
-             }
+            // }
         }
         }
        

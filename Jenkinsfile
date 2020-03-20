@@ -1,8 +1,8 @@
 pipeline {
     agent any
-    tools {
-        Terraform 'Terraform v0.12.20'
-    }
+    //tools {
+    //    Terraform 'Terraform v0.12.20'
+   // }
    // environment {
     //TF_WORKSPACE = 'dev' //Sets the Terraform Workspace
    // TF_IN_AUTOMATION = 'true'
